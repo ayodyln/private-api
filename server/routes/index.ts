@@ -3,6 +3,7 @@ import { corsHndlr } from "../../utils/cors";
 export default eventHandler({
   onRequest: (event) => {
     const headers = getHeaders(event);
+    console.log("request", headers);
 
     if (!headers["origin"]) {
       event.respondWith(new Response("Missing Origin header", { status: 400 }));
@@ -16,11 +17,11 @@ export default eventHandler({
   },
   onBeforeResponse: (event) => {
     const headers = getHeaders(event);
-    // console.log("response", headers);
+    console.log("response", headers);
   },
   handler: (event) => {
     const headers = getHeaders(event);
-    // console.log(headers);
+    console.log(headers);
 
     return headers;
   },
