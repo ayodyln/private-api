@@ -22,6 +22,6 @@ export default eventHandler({
     const headers = getHeaders(event);
     // console.log(headers);
 
-    return "Response";
+    return headers;
   },
 });
