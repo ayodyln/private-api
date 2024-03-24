@@ -5,8 +5,8 @@ export default eventHandler({
     const headers = getHeaders(event);
     console.log("request", headers);
 
-    if (!headers["origin"]) {
-      event.respondWith(new Response("Missing Origin header", { status: 400 }));
+    if (headers["access-control-request-origin"] !== process.env.CORS_ORIGIN) {
+      event.respondWith(new Response("Not Allowed", { status: 403 }));
     }
 
     const cors = corsHndlr(headers, [process.env.CORS_ORIGIN]);
