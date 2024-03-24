@@ -1,4 +1,4 @@
 export const corsHndlr = (headers, origin: string[]) =>
-  isCorsOriginAllowed(headers.origin, {
+  isCorsOriginAllowed(headers["access-control-allow-origin"], {
     origin,
   });
