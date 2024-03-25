@@ -7,7 +7,7 @@ export default eventHandler({
     const headers = getHeaders(event);
     // console.log(headers);
 
-    return headers;
+    return new Response("Hello, World!");
   },
 });
 
