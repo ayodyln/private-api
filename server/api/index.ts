@@ -18,11 +18,11 @@ function onRequest(event) {
     event.respondWith(
       new Response("Bad Request: Missing Origin Header", { status: 400 })
     );
-  } else if (headers["origin"] !== "https://www.dylan-portfolio.dev") {
+  } else if (headers["origin"] !== process.env.ALLOWED_ORIGIN) {
     event.respondWith(new Response("Access Not Allowed", { status: 403 }));
   }
 
-  const cors = corsHndlr(headers, ["https://www.dylan-portfolio.dev"]);
+  const cors = corsHndlr(headers, [process.env.ALLOWED_ORIGIN]);
 
   if (!cors) {
     event.respondWith(new Response("Access Not Allowed", { status: 403 }));
