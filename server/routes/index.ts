@@ -4,12 +4,13 @@ export default eventHandler({
   onRequest: (event) => {
     const headers = getHeaders(event);
     console.log("request", headers);
-    if (!headers["access-control-allow-origin"]) {
-      event.respondWith(
-        new Response("Missing Access-Control-Allow-Origin", { status: 403 })
-      );
+    if (!headers["origin"]) {
+      event.respondWith(new Response("Missing Origin", { status: 403 }));
     }
-    const cors = corsHndlr(headers, ["http://localhost:3000"]);
+    const cors = corsHndlr(headers, [
+      "http://localhost:3000",
+    ]);
+    console.log(cors);
     if (!cors) {
       event.respondWith(new Response("Access Not Allowed", { status: 403 }));
     }
