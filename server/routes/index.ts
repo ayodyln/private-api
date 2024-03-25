@@ -9,7 +9,7 @@ export default eventHandler({
         new Response("Missing Access-Control-Allow-Origin", { status: 403 })
       );
     }
-    const cors = corsHndlr(headers, [process.env.CORS_ORIGIN]);
+    const cors = corsHndlr(headers, ["http://localhost:3000"]);
     if (!cors) {
       event.respondWith(new Response("Access Not Allowed", { status: 403 }));
     }
