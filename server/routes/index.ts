@@ -8,7 +8,7 @@ export default eventHandler({
       event.respondWith(new Response("Missing Origin", { status: 403 }));
     }
     const cors = corsHndlr(headers, [
-      "http://localhost:3000",
+      "www.example.com",
     ]);
     console.log(cors);
     if (!cors) {
