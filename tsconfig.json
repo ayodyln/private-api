@@ -1,10 +1,4 @@
 // https://nitro.unjs.io/guide/typescript
 {
-  "extends": "./.nitro/types/tsconfig.json",
-  "compilerOptions": {
-    "baseUrl": "./",
-    "paths": {
-      "@utils/*": ["utils/*"]
-    }
-  }
+  "extends": "./.nitro/types/tsconfig.json"
 }
