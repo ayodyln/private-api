@@ -1,4 +1,4 @@
-import { corsHndlr } from "../../utils/cors";
+import { corsHndlr } from "@utils/cors";
 
 export default eventHandler({
   onRequest,
