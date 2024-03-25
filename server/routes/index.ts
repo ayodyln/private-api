@@ -2,10 +2,7 @@ import { corsHndlr } from "../../utils/cors";
 
 export default eventHandler({
   onRequest,
-  onBeforeResponse: (event) => {
-    const headers = getHeaders(event);
-    // console.log("response", headers);
-  },
+  onBeforeResponse,
   handler: (event) => {
     const headers = getHeaders(event);
     // console.log(headers);
@@ -29,4 +26,9 @@ function onRequest(event) {
   if (!cors) {
     event.respondWith(new Response("Access Not Allowed", { status: 403 }));
   }
+}
+
+function onBeforeResponse(event) {
+  const headers = getHeaders(event);
+  console.log("response", headers);
 }
