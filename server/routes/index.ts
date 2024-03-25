@@ -7,9 +7,7 @@ export default eventHandler({
     if (!headers["origin"]) {
       event.respondWith(new Response("Missing Origin", { status: 403 }));
     }
-    const cors = corsHndlr(headers, [
-      "www.example.com",
-    ]);
+    const cors = corsHndlr(headers, ["https://www.dylan-portfolio.dev"]);
     console.log(cors);
     if (!cors) {
       event.respondWith(new Response("Access Not Allowed", { status: 403 }));

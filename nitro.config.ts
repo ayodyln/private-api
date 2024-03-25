@@ -5,7 +5,7 @@ export default defineNitroConfig({
     "/**": {
       cors: true,
       headers: {
-        "Access-Control-Allow-Origin": "http://localhost:3000",
+        "Access-Control-Allow-Origin": "http://localhost:3000, https://www.dylan-portfolio.dev",
         "Access-Control-Allow-Methods": "GET",
         "Access-Control-Allow-Headers": "Content-Type, Authorization",
         "Content-Type": "application/json",
